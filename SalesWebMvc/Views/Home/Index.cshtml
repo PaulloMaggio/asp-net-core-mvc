@@ -1,8 +1,71 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dashboard de Vendas";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-primary">Sistema SalesWeb</h1>
+    <p class="lead text-muted">Gestão estratégica de departamentos, vendedores e registros de vendas.</p>
 </div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 transition-hover">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon bg-primary bg-gradient text-white mb-3 mx-auto d-flex align-items-center justify-content-center rounded-circle" style="width: 60px; height: 60px;">
+                    <i class="bi bi-building fs-3"></i>
+                </div>
+                <h3 class="h5">Departamentos</h3>
+                <p class="text-muted small">Gerencie os setores da empresa e organize sua estrutura organizacional.</p>
+                <a asp-controller="Departments" asp-action="Index" class="btn btn-outline-primary btn-sm stretched-link">Acessar Setores</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 transition-hover">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon bg-success bg-gradient text-white mb-3 mx-auto d-flex align-items-center justify-content-center rounded-circle" style="width: 60px; height: 60px;">
+                    <i class="bi bi-people fs-3"></i>
+                </div>
+                <h3 class="h5">Vendedores</h3>
+                <p class="text-muted small">Cadastre sua equipe, defina salários base e acompanhe perfis individuais.</p>
+                <a asp-controller="Sellers" asp-action="Index" class="btn btn-outline-success btn-sm stretched-link">Gerenciar Equipe</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 transition-hover">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon bg-info bg-gradient text-white mb-3 mx-auto d-flex align-items-center justify-content-center rounded-circle" style="width: 60px; height: 60px;">
+                    <i class="bi bi-graph-up-arrow fs-3"></i>
+                </div>
+                <h3 class="h5">Relatórios</h3>
+                <p class="text-muted small">Analise o desempenho de vendas com buscas simples ou agrupadas por data.</p>
+                <a asp-controller="SalesRecords" asp-action="Index" class="btn btn-outline-info btn-sm stretched-link">Ver Vendas</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5 p-5 bg-light rounded-3 shadow-sm border">
+    <div class="row align-items-center">
+        <div class="col-md-8">
+            <h2 class="fw-bold">Status do Sistema</h2>
+            <p class="mb-0 text-muted">Base de dados sincronizada e operando em ambiente de desenvolvimento **.NET 9**.</p>
+        </div>
+        <div class="col-md-4 text-end">
+            <span class="badge bg-success p-2 px-3">Online - 2026</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    .transition-hover {
+        transition: transform 0.2s ease-in-out, shadow 0.2s ease-in-out;
+    }
+    .transition-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    }
+</style>

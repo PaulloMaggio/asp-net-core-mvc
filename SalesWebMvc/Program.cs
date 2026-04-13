@@ -6,13 +6,7 @@ using SalesWebMvc.Services;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 
-var builder = WebApplication.CreateBuilder(new WebApplicationOptions
-{
-    Args = args,
-    WebRootPath = "wwwroot"
-});
-
-builder.Environment.EnvironmentName = "Development";
+var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("SalesWebMvcContext")
     ?? throw new InvalidOperationException("Connection string 'SalesWebMvcContext' not found.");
@@ -23,6 +17,7 @@ builder.Services.AddDbContext<SalesWebMvcContext>(options =>
 builder.Services.AddScoped<SeedingService>();
 builder.Services.AddScoped<SellerService>();
 builder.Services.AddScoped<DepartmentService>();
+builder.Services.AddScoped<SalesRecordService>();
 
 builder.Services.AddControllersWithViews();
 

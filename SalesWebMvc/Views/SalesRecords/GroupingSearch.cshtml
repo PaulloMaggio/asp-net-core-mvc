@@ -1,0 +1,60 @@
+@model IEnumerable<IGrouping<Department, SalesRecord>>
+
+@{
+    ViewData["Title"] = "Busca Agrupada";
+    DateTime minDate = DateTime.Parse(ViewData["minDate"] as string);
+    DateTime maxDate = DateTime.Parse(ViewData["maxDate"] as string);
+}
+
+<div class="card shadow border-0 mb-5">
+    <div class="card-body bg-dark rounded">
+        <form class="row g-3 align-items-end" role="search">
+            <div class="col-md-4">
+                <label class="form-label fw-bold text-white">Início do Período</label>
+                <input type="date" class="form-control border-0" name="minDate" value="@ViewData["minDate"]">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label fw-bold text-white">Fim do Período</label>
+                <input type="date" class="form-control border-0" name="maxDate" value="@ViewData["maxDate"]">
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary w-100 shadow-sm">Atualizar Agrupamento</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@foreach (var departmentGroup in Model)
+{
+    <div class="card shadow-sm border-0 mb-5">
+        <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center py-3">
+            <h4 class="h5 mb-0">Departamento: <span class="fw-light">@departmentGroup.Key.Name</span></h4>
+            <span class="badge bg-light text-dark fs-6 shadow-sm">Total: @departmentGroup.Key.TotalSales(minDate, maxDate).ToString("C")</span>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 text-center">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>Data</th>
+                            <th>Valor</th>
+                            <th>Vendedor</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in departmentGroup)
+                        {
+                            <tr>
+                                <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                                <td class="fw-bold text-primary">@item.Amount.ToString("C")</td>
+                                <td>@item.Seller.Name</td>
+                                <td>@item.Status</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}

@@ -1,3 +1,4 @@
+#nullable enable // ADICIONE ISSO AQUI
 namespace SalesWebMvc.Models.ViewModels
 {
     public class ErrorViewModel
