@@ -4,7 +4,13 @@ using SalesWebMvc.Models;
 using SalesWebMvc.Data;
 using SalesWebMvc.Services;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    WebRootPath = "wwwroot"
+});
+
+builder.Environment.EnvironmentName = "Development";
 
 var connectionString = builder.Configuration.GetConnectionString("SalesWebMvcContext")
     ?? throw new InvalidOperationException("Connection string 'SalesWebMvcContext' not found.");
@@ -36,9 +42,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(
