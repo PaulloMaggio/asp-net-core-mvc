@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Models;
 using SalesWebMvc.Services.Exceptions;
 
@@ -55,6 +57,5 @@ namespace SalesWebMvc.Services
                 throw new DbConcurrencyException(e.Message);
             }
         }
-
     }
 }
