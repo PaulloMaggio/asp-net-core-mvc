@@ -6,8 +6,8 @@ O **SalesWebMvc** é uma aplicação completa de gestão de vendas desenvolvida 
 
 <table>
   <tr>
-    <td align="center"><b>Dashboard Principal</b><br><img src="./assets/Home.png" width="400"></td>
-    <td align="center"><b>Departamentos</b><br><img src="./assets/Department.jpg" width="400"></td>
+    <td align="center"><b>Dashboard Principal</b><br><img src="./assets/Home.jpg" width="400"></td>
+    <td align="center"><b>Departamentos</b><br><img src="./assets/Departments.jpg" width="400"></td>
   </tr>
   <tr>
     <td align="center"><b>Gestão de Vendedores</b><br><img src="./assets/Sellers.jpg" width="400"></td>
